@@ -14,6 +14,37 @@ Surface defects in steel manufacturing (crazing, scratches, pitting, etc.) are t
 
 ---
 
+## 📖 About the Project
+
+Steel is one of the most widely used materials in industries like construction, automotive, and manufacturing. During the production process, various surface defects can occur that compromise the quality and structural integrity of the final product. Detecting these defects early is critical — but doing it manually is time-consuming, inconsistent, and expensive.
+
+This project builds an **automated surface defect detection system** using deep learning. Given an image of a steel surface, the model predicts which type of defect is present.
+
+### 🔍 How It Works
+
+The pipeline has two stages:
+
+**1. Training (`Model_Training/`)**
+- Loads the NEU-DET dataset which contains 1,800 grayscale images across 6 defect categories
+- Preprocesses images — resizing to 224×224 and building a clean train/val/test split
+- Applies data augmentation (flipping, rotation, zoom, contrast) to improve generalisation
+- Uses **EfficientNetB0** pretrained on ImageNet as a frozen feature extractor — reusing patterns the model already learned from millions of images instead of training from scratch
+- Adds a custom classification head on top and trains only that part
+- Evaluates performance using accuracy, classification report, and confusion matrix
+- Saves the trained model and class names for inference
+
+**2. Inference (`Predictor/`)**
+- Loads the saved model and class names
+- Takes any steel surface image as input
+- Preprocesses it the same way as training
+- Returns the predicted defect class and confidence score with a full probability table
+
+### 💡 Why EfficientNetB0?
+
+Training a deep CNN from scratch requires a huge dataset and a lot of compute. Instead, we use **Transfer Learning** — EfficientNetB0 was already trained on 1.2 million images (ImageNet) and learned powerful low-level features like edges, textures, and shapes. We freeze those weights and only train the final layers to recognise steel defects. This gives strong performance even with a small dataset of ~1,800 images.
+
+---
+
 ## 🗂️ Project Structure
 
 ```
@@ -37,8 +68,6 @@ steel-surface-defect-classification/
 ├── LICENSE
 └── README.md
 ```
-
-> ⚠️ `steel_defect_model.keras` is not included due to file size (~20MB). Train it using `Surface_Defect_Classification.ipynb` and copy it to the `Predictor/` folder.
 
 ---
 
