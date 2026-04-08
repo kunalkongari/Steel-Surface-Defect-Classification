@@ -1,4 +1,4 @@
-# 🔩 Steel Surface Defect Classification
+# Steel Surface Defect Classification
 
 A deep learning project to automatically detect and classify surface defects in steel using **Transfer Learning with EfficientNetB0** on the NEU Surface Defect Dataset.
 
@@ -8,19 +8,19 @@ A deep learning project to automatically detect and classify surface defects in 
 
 ---
 
-## 📌 Problem Statement
+## Problem Statement
 
 Surface defects in steel manufacturing (crazing, scratches, pitting, etc.) are traditionally inspected manually — which is slow and error-prone. This project automates defect detection using a CNN-based image classifier.
 
 ---
 
-## 📖 About the Project
+## About the Project
 
 Steel is one of the most widely used materials in industries like construction, automotive, and manufacturing. During the production process, various surface defects can occur that compromise the quality and structural integrity of the final product. Detecting these defects early is critical — but doing it manually is time-consuming, inconsistent, and expensive.
 
 This project builds an **automated surface defect detection system** using deep learning. Given an image of a steel surface, the model predicts which type of defect is present.
 
-### 🔍 How It Works
+### How It Works
 
 The pipeline has two stages:
 
@@ -39,13 +39,13 @@ The pipeline has two stages:
 - Preprocesses it the same way as training
 - Returns the predicted defect class and confidence score with a full probability table
 
-### 💡 Why EfficientNetB0?
+### Why EfficientNetB0?
 
 Training a deep CNN from scratch requires a huge dataset and a lot of compute. Instead, we use **Transfer Learning** — EfficientNetB0 was already trained on 1.2 million images (ImageNet) and learned powerful low-level features like edges, textures, and shapes. We freeze those weights and only train the final layers to recognise steel defects. This gives strong performance even with a small dataset of ~1,800 images.
 
 ---
 
-## 🗂️ Project Structure
+## Project Structure
 
 ```
 steel-surface-defect-classification/
@@ -71,7 +71,7 @@ steel-surface-defect-classification/
 
 ---
 
-## 🧠 Model Architecture
+## Model Architecture
 
 | Component  | Details                                      |
 |---|---|
@@ -83,7 +83,7 @@ steel-surface-defect-classification/
 
 ---
 
-## 🏷️ Defect Classes
+## Defect Classes
 
 | Class | Description |
 |---|---|
@@ -96,7 +96,7 @@ steel-surface-defect-classification/
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 ### 1. Clone the repository
 ```bash
@@ -150,7 +150,7 @@ files.download("prediction_results.zip")
 
 ---
 
-## 📊 Training Config
+## Training Config
 
 | Parameter    | Value                                          |
 |---|---|
@@ -163,7 +163,7 @@ files.download("prediction_results.zip")
 
 ---
 
-## 📄 License
+## License
 
 This project is open source under the [MIT License](LICENSE).
 
