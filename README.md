@@ -171,5 +171,5 @@ This project is open source under the [MIT License](LICENSE).
 
 ## Acknowledgements
 
-- Dataset: [NEU Surface Defect Database](http://faculty.neu.edu.cn/yunhyan/NEU_surface_defect_database.html)
+- Dataset: [NEU Surface Defect Database](https://www.kaggle.com/datasets/kaustubhdikshit/neu-surface-defect-database/)
 - Base model: [EfficientNetB0](https://keras.io/api/applications/efficientnet/) via Keras Applications
